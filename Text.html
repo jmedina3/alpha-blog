@@ -1,0 +1,63 @@
+<-- nomenclature -->
+model name Article (Capitalized)
+Model name => Singular, first letter Uppercase
+Table name => Plural, lower case of model
+Model name filename => All lowercase but singular, article.rb
+Controller name => plural of model so articles_controller.rb
+
+
+
+<-- Not de prefrerred way --></-->
+.) To create a database we use:
+  rails generate migration create_articles #articles is the name of the table
+  
+.) To migrate the the database we use rake db:migrate (db/schema.rb)
+
+.) To rollback the database we use rake db:rollback
+
+<-- Prefered way --></-->
+The best way to fix a mistake is to create a new migration
+So, to generate a new table we use:
+rails generate migration add_description_to_articles (description bing the one added, and articles being the one who needs it)
+We go to the migration we just created and do something like this:
+add_column :articles, :description, :text (Name of the table, description and type)
+add_column :articles, :created_at, :datetime
+
+<-- rails console --></-->
+we can update the databse throguht the console
+article.title = "Text"
+article.description = "Description"
+to save: article.save
+
+<-- Mass creation: --></-->
+article = Article.new(title: "This is my second article", description: "Second description", created_at: nil, updated_at: nil) 
+
+<-- To aumatically save, wihtout useing article.save.  --></-->
+We simply use Class.new
+Article.new(title: "This is my third article", description: "third description")
+
+<-- To edit an article: --></-->
+1) variable = Class.find(id)
+    article = Article.find(2)
+
+2) variable.table = "edit"
+    article.title = "Edited Title"
+  
+3)variable.save
+    article.save
+
+<-- To Destroy an article --></-->
+1) variable = Class.find(id)
+    article = Article.find(3)
+2) variable.destroy
+    article.destroy
+
+<-- If we dont want an empty article, we go to the article.rb and insert this line: --></-->
+validates :title, presence: true
+
+<-- To find errors --></-->
+article.errors.any
+article.errors.full_messages
+
+<-- to add minimum and maximum length --></-->
+validates :title, length { minimum: 0, maximum: 300 }

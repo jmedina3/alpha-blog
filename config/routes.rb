@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   root 'pages#home'
   #the first is the link and the second is the path
   get 'about', to: 'pages#about'
+  
+  #articles line
+  resources :articles
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

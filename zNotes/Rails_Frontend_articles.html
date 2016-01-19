@@ -1,0 +1,20 @@
+<-- Articles path --></-->
+To create articles path we go to config/routes.rb
+and add the line 
+  resources :articles
+  it provides us with new_article, edit_article, article, patch, put and delete
+  
+we have to initiate the instance variable on articles controller.
+
+<-- on the layout, to create forms: --></-->
+
+<h1>Create articles</h1>
+
+<%= form_for @article do |f| %>
+  <p/>
+    <%= f.label :title %><br/>
+    <%= f.text_field :title %>
+  <p/>
+    <%= f.label :description %><br/>
+    <%= f.text_area :description %>
+<% end %>

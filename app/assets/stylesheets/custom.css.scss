@@ -1,5 +1,9 @@
 $navbar-default-bg: #0099ff;
 
+td:nth-of-type(2) {
+   padding-right: 20px;
+}
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 

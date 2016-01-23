@@ -1,0 +1,15 @@
+First we generate users:
+> rails generate scaffold User username:string email:string
+> rake db:migrate
+Rails console
+> User.all
+> User
+Create an user:
+user = User.create = (username: "Name", email: "email)
+
+controllers/users_controllers.rb
+
+Create comments:
+rails generate scaffold Comment description:text user:references
+
+rake db:migrate

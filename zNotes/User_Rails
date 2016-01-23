@@ -13,3 +13,7 @@ Create comments:
 rails generate scaffold Comment description:text user:references
 
 rake db:migrate
+
+-______________________________________________________________
+Create a migration on alpha-blog
+* rails generate migration create_users
